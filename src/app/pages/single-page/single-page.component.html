@@ -1,0 +1,669 @@
+﻿<div class="single-page-portfolio">
+  
+  <!-- NAVIGATION FIXE -->
+  <nav class="fixed-nav" [class.scrolled]="isScrolled">
+    <div class="professional-container nav-container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+      <div class="nav-brand" style="flex-shrink: 0;">
+        <h2>Sondes <span class="brand-dot">AFFES</span></h2>
+      </div>
+
+      <ul class="nav-menu" [class.menu-open]="menuOpen" style="margin-left: auto;">
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'accueil'" (click)="scrollToSection('accueil')">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'apropos'" (click)="scrollToSection('apropos')">À propos</a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'parcours'" (click)="scrollToSection('parcours'); switchTimeline('experience')">Expériences</a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'parcours'" (click)="scrollToSection('parcours'); switchTimeline('education')">Formation</a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'competences'" (click)="scrollToSection('competences')">Compétences</a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'projets'" (click)="scrollToSection('projets')">Projets</a>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link" [class.active]="activeSection === 'contact'" (click)="scrollToSection('contact')">Contact</a>
+        </li>
+      </ul>
+
+      <button class="nav-toggle" [class.menu-open]="menuOpen" (click)="toggleMenu()" aria-label="Toggle Menu">
+        <i class="fas" [class.fa-bars]="!menuOpen" [class.fa-times]="menuOpen"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Overlay pour mobile -->
+  <div class="nav-overlay" [class.menu-open]="menuOpen" (click)="menuOpen = false"></div>
+
+  <!-- CONTENU AVEC OFFSET -->
+  <div class="content-offset">
+    
+    <!-- SECTION HERO -->
+    <section id="accueil" class="hero-section section-base">
+      <div class="professional-container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="hero-greeting">Bonjour, je suis</p>
+            <h1 class="hero-title text-heading-1">
+              <span class="hero-name text-accent">Sondes AFFES</span>
+            </h1>
+            <h2 class="hero-subtitle text-accent">Full Stack Developer | IA & DevOps</h2>
+            <p class="hero-description text-body-lg">
+
+Élève ingénieure en Génie Informatique, spécialisée en développement Full Stack, Intelligence Artificielle et DevOps. Je conçois et développe des solutions digitales modernes, performantes et adaptées aux besoins réels.
+
+            </p>
+            <div class="hero-actions flex-base">
+              <a href="javascript:void(0)" class="btn-base btn-secondary" (click)="scrollToSection('contact')">
+                <i class="fas fa-envelope"></i>
+                Me contacter
+              </a>
+              <a href="javascript:void(0)" class="btn-base btn-primary" (click)="scrollToSection('projets')">
+                <i class="fas fa-eye"></i>
+                Voir mes projets
+              </a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img [src]="profile.avatar" [alt]="profile.firstName + ' ' + profile.lastName" class="hero-avatar" (error)="onImageError($event)">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- SECTION À PROPOS -->
+    <section id="apropos" class="about-section section-base" style="background: linear-gradient(135deg, #fafbff 0%, #f1f5f9 100%); position: relative; overflow: hidden;">
+      
+      <!-- Éléments décoratifs -->
+      <div style="position: absolute; top: 15%; right: 8%; width: 120px; height: 120px; background: linear-gradient(45deg, var(--primary-200), var(--primary-300)); opacity: 0.3; border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+      <div style="position: absolute; bottom: 20%; left: 5%; width: 90px; height: 90px; background: linear-gradient(45deg, var(--primary-300), var(--primary-400)); opacity: 0.2; border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
+      
+      <div class="professional-container">
+        <div class="section-title-base">
+          <p class="section-subtitle" style="color: var(--primary-600); font-weight: var(--font-semibold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Découvrez mon profil</p>
+          <h2 class="section-title" style="font-size: clamp(2rem, 5vw, 3rem); font-weight: var(--font-bold); color: var(--gray-900); margin-bottom: 1rem;">À propos de moi</h2>
+          <p class="section-description" style="color: var(--gray-600); font-size: var(--text-lg); line-height: 1.6; max-width: 600px; margin: 0 auto 3rem;">
+            Développement Full Stack · Intelligence Artificielle · DevOps
+          </p>
+        </div>
+        
+        <div class="about-content grid-base grid-2">
+          
+          <!-- Profile Card améliorée -->
+          <div class="profile-card card-base" style="background: white; padding: 3rem; text-align: center; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); border: 1px solid var(--gray-200); position: relative; overflow: hidden;">
+            
+            <!-- Accent décoratif -->
+            <div style="position: absolute; top: 0; left: 0; right: 0; height: 5px; background: linear-gradient(90deg, var(--primary-600), var(--primary-500), var(--primary-400));"></div>
+            
+            <!-- Photo de profil avec effet -->
+            <div style="position: relative; margin-bottom: 2rem;">
+              <div style="width: 180px; height: 180px; margin: 0 auto; position: relative;">
+                <!-- Cercle décoratif animé -->
+                <div style="position: absolute; inset: -10px; background: linear-gradient(45deg, var(--primary-600), var(--primary-400)); border-radius: 50%; animation: spin 20s linear infinite; opacity: 0.1;"></div>
+                <div style="position: absolute; inset: -5px; background: linear-gradient(45deg, var(--primary-500), var(--primary-300)); border-radius: 50%; animation: spin 15s linear infinite reverse; opacity: 0.1;"></div>
+                
+                <!-- Photo -->
+                <img [src]="profile.avatar" [alt]="profile.firstName + ' ' + profile.lastName" 
+                     class="profile-avatar" 
+                     (error)="onImageError($event)"
+                     style="width: 180px; height: 180px; border-radius: 50%; margin: 0 auto; border: 6px solid white; box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; z-index: 2; transition: transform 0.3s ease; object-fit: cover; object-position: center top;">
+                
+                <!-- Badge statut -->
+                <div style="position: absolute; bottom: 10px; right: 10px; background: #22c55e; width: 25px; height: 25px; border-radius: 50%; border: 4px solid white; display: flex; align-items: center; justify-content: center; z-index: 3; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4);">
+                  <div style="width: 8px; height: 8px; background: white; border-radius: 50%;"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Informations personnelles -->
+            <div style="margin-bottom: 2rem;">
+              <h3 style="font-size: var(--text-2xl); font-weight: var(--font-bold); color: var(--gray-900); margin-bottom: 0.5rem;">{{ profile.firstName }} {{ profile.lastName }}</h3>
+              <div style="background: var(--primary-100); color: var(--primary-700); padding: 0.5rem 1rem; border-radius: 20px; font-weight: var(--font-semibold); margin-bottom: 1rem; display: inline-block;">
+                Élève Ingénieure en Génie Informatique
+              </div>
+              <p style="color: var(--gray-500); margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                <i class="fas fa-map-marker-alt" style="color: var(--primary-500);"></i>
+                Institut International de Technologie de Sfax
+              </p>
+              
+              <!-- Tags spécialisations -->
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin-bottom: 2rem;">
+                <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: var(--text-xs); font-weight: var(--font-medium); border: 1px solid var(--primary-200);">
+                  Génie Logiciel
+                </span>
+                <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: var(--text-xs); font-weight: var(--font-medium); border: 1px solid var(--primary-200);">
+                  BI & Data
+                </span>
+                <span style="background: var(--primary-50); color: var(--primary-700); padding: 0.25rem 0.75rem; border-radius: 12px; font-size: var(--text-xs); font-weight: var(--font-medium); border: 1px solid var(--primary-200);">
+                  Full Stack
+                </span>
+              </div>
+            </div>
+            
+         <!-- Boutons d'action améliorés -->
+<div class="profile-actions" style="display: flex; flex-direction: column; gap: 1rem;">
+  <button
+    (click)="downloadCV()"
+    class="btn-base btn-primary"
+    style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1rem 1.5rem; background: var(--primary-600); color: white; border: none; border-radius: 12px; font-weight: var(--font-semibold); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);"
+  >
+    <i class="fas fa-download"></i>
+    Télécharger mon CV
+  </button>
+
+              <div style="display: flex; gap: 0.75rem; justify-content: center;">
+                <a href="https://www.linkedin.com/in/sondes-affes-384064268/" target="_blank" 
+                   style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; background: #0077b5; color: white; text-decoration: none; border-radius: 10px; font-weight: var(--font-medium); font-size: var(--text-sm); transition: all 0.3s ease;">
+                  <i class="fab fa-linkedin"></i>
+                  LinkedIn
+                </a>
+                <a href="#contact" (click)="scrollToSection('contact')" 
+                   style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; background: var(--gray-100); color: var(--gray-700); text-decoration: none; border-radius: 10px; font-weight: var(--font-medium); font-size: var(--text-sm); border: 1px solid var(--gray-300); transition: all 0.3s ease;">
+                  <i class="fas fa-envelope"></i>
+                  Contact
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contenu à propos amélioré -->
+          <div class="about-text">
+            <div class="card-base" style="background: white; padding: 3rem; border-radius: 20px; box-shadow: 0 25px 50px rgba(0,0,0,0.1); border: 1px solid var(--gray-200); height: fit-content;">
+              
+              <div style="margin-bottom: 2rem;">
+                <h3 style="font-size: var(--text-2xl); font-weight: var(--font-bold); color: var(--gray-900); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem;">
+                  <div style="width: 8px; height: 40px; background: linear-gradient(to bottom, var(--primary-600), var(--primary-400)); border-radius: 4px;"></div>
+                  Expertise & Passion
+                </h3>
+                <p style="color: var(--primary-600); font-weight: var(--font-semibold); margin-bottom: 1.5rem;">
+                  Full Stack Developer · IA · DevOps
+                </p>
+              </div>
+              
+              <!-- Contenu principal -->
+              <div style="space-y: 1.5rem;">
+                <p style="color: var(--gray-700); line-height: 1.8; margin-bottom: 1.5rem; font-size: var(--text-base);">
+                  Je suis <strong style="color: var(--primary-600);">Sondes Affes</strong>, élève ingénieure en 3ᵉ année de 
+                  <strong>Génie Logiciel et Informatique Décisionnelle</strong> à l'Institut International de Technologie de Sfax (IIT).
+                </p>
+                
+                <p style="color: var(--gray-700); line-height: 1.8; margin-bottom: 1.5rem; font-size: var(--text-base);">
+                  Mon parcours m'a permis de développer une expertise solide en <strong style="color: var(--gray-900);">conception et développement 
+                  d'applications Full Stack</strong>, notamment avec Angular, ASP.NET Core, Spring Boot et Laravel, ainsi qu'en 
+                  développement mobile avec Flutter et Ionic.
+                </p>
+                
+                <p style="color: var(--gray-700); line-height: 1.8; margin-bottom: 1.5rem; font-size: var(--text-base);">
+                  Passionnée par l'<strong style="color: var(--primary-600);">intelligence artificielle</strong> et les <strong style="color: var(--primary-600);">données</strong>, 
+                  j'ai mis en pratique mes connaissances à travers des projets innovants comme MediFlow, une solution de prédiction 
+                  intelligente du temps d'attente aux urgences utilisant des techniques de Machine Learning avancées.
+                </p>
+                
+                <p style="color: var(--gray-700); line-height: 1.8; margin-bottom: 2rem; font-size: var(--text-base);">
+                  Mon expérience chez <strong style="color: var(--primary-600);">Finlogik</strong> m'a notamment permis de concevoir 
+                  et développer une plateforme web complète de motivation des employés, de l'analyse des besoins jusqu'à la mise en production.
+                </p>
+              </div>
+              
+              <!-- Objectifs professionnels -->
+              <div style="background: linear-gradient(135deg, var(--primary-50), var(--primary-100)); border: 1px solid var(--primary-200); padding: 2rem; border-radius: 16px; position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--primary-600), var(--primary-400));"></div>
+                
+                <h4 style="color: var(--primary-700); font-weight: var(--font-bold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-target" style="color: var(--primary-600);"></i>
+                  Recherche de Stage PFE
+                </h4>
+                <p style="color: var(--primary-800); margin: 0; line-height: 1.7; font-size: var(--text-base);">
+                  <strong>Curieuse, motivée et toujours désireuse d'apprendre</strong>, je suis actuellement à la recherche 
+                  d'un <strong>stage de Projet de Fin d'Études (PFE)</strong> pour valider ma formation d'ingénieure et 
+                  contribuer à des projets innovants dans le domaine du développement logiciel, de l'IA et du DevOps.
+                </p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION EXPÉRIENCES ET FORMATION -->
+    <section id="parcours" class="experience-section section-base bg-white">
+      <div class="professional-container">
+        <div class="section-title-base">
+          <p class="section-subtitle">Mon évolution professionnelle</p>
+          <h2 class="section-title">Expériences et formation</h2>
+          <p class="section-description">Un parcours riche en apprentissages et en projets concrets</p>
+        </div>
+        
+        <div class="timeline-container">
+          <div class="timeline-tabs" style="display: flex; justify-content: center; margin-bottom: 3rem; background: var(--gray-100); padding: 0.5rem; border-radius: 12px; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <button class="timeline-tab" 
+                    [class.active]="activeTimeline === 'experience'" 
+                    (click)="switchTimeline('experience')"
+                    style="flex: 1; padding: 1rem; background: transparent; border: none; cursor: pointer; transition: var(--transition-base); font-weight: var(--font-medium); border-radius: 8px;">
+              <i class="fas fa-briefcase" style="margin-right: 0.5rem;"></i>
+              <span>Expériences</span>
+            </button>
+            <button class="timeline-tab" 
+                    [class.active]="activeTimeline === 'education'" 
+                    (click)="switchTimeline('education')"
+                    style="flex: 1; padding: 1rem; background: transparent; border: none; cursor: pointer; transition: var(--transition-base); font-weight: var(--font-medium); border-radius: 8px;">
+              <i class="fas fa-graduation-cap" style="margin-right: 0.5rem;"></i>
+              <span>Formation</span>
+            </button>
+          </div>
+
+          <!-- Timeline des expériences -->
+          <div class="timeline" *ngIf="activeTimeline === 'experience'" style="position: relative; padding-left: 2rem;">
+            <!-- Ligne verticale -->
+            <div style="position: absolute; left: 1rem; top: 0; bottom: 2rem; width: 2px; background: linear-gradient(to bottom, var(--primary-200), var(--primary-400));"></div>
+            
+            <div class="timeline-item" *ngFor="let exp of experiences; let i = index" 
+                 style="position: relative; margin-bottom: 4rem;">
+              <!-- Marker -->
+              <div style="position: absolute; left: -1.75rem; top: 1rem; width: 1rem; height: 1rem; background: var(--primary-600); border: 3px solid white; border-radius: 50%; box-shadow: 0 0 0 4px var(--primary-100); z-index: 2;"></div>
+              
+              <!-- Contenu -->
+              <div class="timeline-content card-base hover-lift" style="padding: 0; margin-left: 1rem; transition: var(--transition-base); overflow: hidden; border-radius: 12px;">
+                
+                <!-- Image/Media -->
+                <div class="timeline-media" style="height: 400px; overflow: hidden; position: relative;" *ngIf="exp.media">
+                  
+                  <!-- Vidéo -->
+                  <video *ngIf="exp.media.type === 'video'" 
+                         [src]="exp.media.url"
+                         [poster]="exp.media.poster"
+                         controls
+                         preload="metadata"
+                         (error)="onVideoError($event)"
+                         style="width: 100%; height: 100%; object-fit: cover;">
+                    <source [src]="exp.media.url" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                  </video>
+                  
+                  <!-- Image -->
+                  <img *ngIf="exp.media.type === 'image'"
+                       [src]="exp.media.url" 
+                       [alt]="exp.media.alt" 
+                       (error)="onImageError($event)"
+                       style="width: 100%; height: 100%; object-fit: cover; transition: var(--transition-base);">
+                  
+                  <!-- Gradient overlay seulement pour les images -->
+                  <div *ngIf="exp.media.type === 'image'" 
+                       style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%);"></div>
+                  
+                  <!-- Indicateur de type de média -->
+                  <div style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.7); color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: var(--font-medium);">
+                    <i [class]="exp.media.type === 'video' ? 'fas fa-play' : 'fas fa-image'" style="margin-right: 0.25rem;"></i>
+                    {{ exp.media.type === 'video' ? 'Vidéo' : 'Image' }}
+                  </div>
+                </div>
+                
+                <!-- Contenu textuel -->
+                <div style="padding: 2rem;">
+                  <div class="timeline-header" style="margin-bottom: 1rem;">
+                    <div class="timeline-date" style="display: inline-block; background: var(--primary-100); color: var(--primary-700); padding: 0.5rem 1rem; border-radius: 20px; font-size: var(--text-sm); font-weight: var(--font-semibold); margin-bottom: 1rem;">
+                      {{ exp.period }}
+                    </div>
+                    <h4 class="text-heading-3" style="margin-bottom: 0.5rem;">{{ exp.title }}</h4>
+                    <h5 class="text-accent" style="font-weight: var(--font-semibold); margin-bottom: 0.5rem;">{{ exp.company }}</h5>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--gray-500); font-size: var(--text-sm); margin-bottom: 1rem;">
+                      <i class="fas fa-map-marker-alt" style="color: var(--primary-500);"></i>
+                      {{ exp.location }}
+                    </div>
+                  </div>
+                  
+                  <!-- Missions réalisées -->
+                  <div *ngIf="exp.missions && exp.missions.length > 0" style="margin-bottom: 1.5rem;">
+                    <div style="font-weight: var(--font-semibold); color: var(--gray-800); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                      <i class="fas fa-tasks" style="color: var(--primary-600); font-size: 0.875rem;"></i>
+                      Missions réalisées :
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem;">
+                      <li *ngFor="let mission of exp.missions" style="display: flex; align-items: flex-start; gap: 0.6rem; font-size: var(--text-sm); color: var(--gray-700); line-height: 1.6;">
+                        <i class="fas fa-chevron-right" style="color: var(--primary-500); font-size: 0.7rem; margin-top: 0.35rem; flex-shrink: 0;"></i>
+                        {{ mission }}
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div class="timeline-technologies">
+                    <div style="font-weight: var(--font-semibold); color: var(--gray-800); margin-bottom: 0.5rem;">Technologies :</div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                      <span *ngFor="let tech of exp.technologies" 
+                            class="bg-primary-light text-primary-dark" 
+                            style="padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: var(--font-medium);">
+                        {{ tech }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline de formation -->
+          <div class="timeline" *ngIf="activeTimeline === 'education'" style="position: relative; padding-left: 2rem;">
+            <!-- Ligne verticale -->
+            <div style="position: absolute; left: 1rem; top: 0; bottom: 2rem; width: 2px; background: linear-gradient(to bottom, var(--primary-200), var(--primary-400));"></div>
+            
+            <div class="timeline-item" *ngFor="let edu of education; let i = index" 
+                 style="position: relative; margin-bottom: 3rem;">
+              <!-- Marker -->
+              <div style="position: absolute; left: -1.75rem; top: 1rem; width: 1rem; height: 1rem; background: var(--primary-600); border: 3px solid white; border-radius: 50%; box-shadow: 0 0 0 4px var(--primary-100); z-index: 2;"></div>
+              
+              <!-- Contenu -->
+              <div class="timeline-content card-base hover-lift" style="padding: 2rem; margin-left: 1rem; transition: var(--transition-base);">
+                <div class="timeline-header" style="margin-bottom: 1rem;">
+                  <div class="timeline-date" style="display: inline-block; background: var(--primary-100); color: var(--primary-700); padding: 0.5rem 1rem; border-radius: 20px; font-size: var(--text-sm); font-weight: var(--font-semibold); margin-bottom: 1rem;">
+                    {{ edu.period }}
+                  </div>
+                  <h4 class="text-heading-3" style="margin-bottom: 0.5rem;">{{ edu.degree }}</h4>
+                  <h5 class="text-accent" style="font-weight: var(--font-semibold); margin-bottom: 0.5rem;">{{ edu.school }}</h5>
+                  <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--gray-500); font-size: var(--text-sm); margin-bottom: 1rem;">
+                    <i class="fas fa-map-marker-alt" style="color: var(--primary-500);"></i>
+                    {{ edu.location }}
+                  </div>
+                </div>
+                
+                <p class="text-body" style="line-height: 1.7;">{{ edu.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="competences" class="skills-section section-base bg-white">
+      <div class="professional-container">
+        <div class="section-title-base">
+          <p class="section-subtitle">Technologies et savoir-faire</p>
+          <h2 class="section-title">Mes compétences techniques</h2>
+          <p class="section-description">Un ensemble de compétences acquises à travers mes projets académiques et professionnels.</p>
+        </div>
+        
+        <div class="skills-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+          <div class="skill-category card-base hover-lift" *ngFor="let category of skillCategories" style="padding: 2rem; transition: var(--transition-base);">
+            <div class="category-header" style="display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem;">
+              <div class="category-icon" style="width: 50px; height: 50px; background: var(--primary-600); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0;">
+                <i [class]="category.icon"></i>
+              </div>
+              <div style="flex: 1;">
+                <h3 style="font-size: var(--text-lg); font-weight: var(--font-bold); color: var(--gray-900); margin-bottom: 0.5rem;">{{ category.name }}</h3>
+                <p style="font-size: var(--text-sm); color: var(--gray-600); line-height: 1.5; margin: 0;">{{ category.description }}</p>
+              </div>
+            </div>
+            
+            <div class="skills-list" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+              <span *ngFor="let skill of category.skills" 
+                    class="skill-tag"
+                    style="padding: 0.4rem 0.8rem; border-radius: 16px; font-size: 0.8rem; font-weight: var(--font-medium); display: inline-flex; align-items: center; gap: 0.3rem; background: transparent; border: 1px solid var(--gray-300); color: var(--gray-700); transition: all 0.25s ease; cursor: default;">
+                <i [class]="skill.icon" style="font-size: 0.9rem;"></i>
+                {{ skill.name }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION PROJETS -->
+    <section id="projets" class="projects-section section-base section-gray">
+      <div class="professional-container">
+        <div class="section-title-base">
+          <p class="section-subtitle">Mes réalisations</p>
+          <h2 class="section-title">Projets principaux</h2>
+          <p class="section-description">Une sélection de projets en développement Full Stack, Intelligence Artificielle et DevOps.</p>
+        </div>
+        
+     
+
+        <!-- Autres projets -->
+        <div class="other-projects grid-base grid-auto">
+          <div class="project-card card-base hover-lift" *ngFor="let project of otherProjects">
+            
+            <!-- Media (Image ou Vidéo) -->
+            <div class="project-media" style="height: 220px; overflow: hidden; border-radius: 12px 12px 0 0; position: relative;">
+              
+              <!-- Vidéo -->
+              <video *ngIf="project.media?.type === 'video'" 
+                     [src]="project.media?.url"
+                     [poster]="project.media?.poster"
+                     controls
+                     preload="metadata"
+                     (error)="onVideoError($event)"
+                     style="width: 100%; height: 100%; object-fit: cover;">
+                <source [src]="project.media?.url" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture de vidéos.
+              </video>
+              
+              <!-- Image par défaut ou fallback -->
+              <img *ngIf="!project.media || project.media?.type === 'image'"
+                   [src]="project.image || project.media?.url" 
+                   [alt]="project.title" 
+                   (error)="onImageError($event)"
+                   style="width: 100%; height: 100%; object-fit: cover;">
+              
+              <!-- Indicateur de type de média -->
+              <div *ngIf="project.media?.type === 'video'" 
+                   style="position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.7); color: white; padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: var(--font-medium);">
+                <i class="fas fa-play" style="margin-right: 0.25rem;"></i>
+                Vidéo
+              </div>
+            </div>
+            <div class="project-content" style="padding: 2rem;">
+              <h4 class="text-heading-3" style="margin-bottom: 0.5rem;">{{ project.title }}</h4>
+              <h5 style="color: var(--primary-600); font-weight: var(--font-semibold); font-size: var(--text-sm); margin-bottom: 1rem;">{{ project.description }}</h5>
+              <p class="text-body" style="margin-bottom: 1.5rem; line-height: 1.6; color: var(--gray-600);">{{ project.fullDescription }}</p>
+              
+              <!-- Technologies -->
+              <div style="margin-bottom: 1.5rem;">
+                <h6 style="font-weight: var(--font-semibold); color: var(--gray-800); margin-bottom: 0.75rem; font-size: var(--text-sm);">Technologies :</h6>
+                <div class="project-tech flex-base flex-wrap space-xs">
+                  <span *ngFor="let tech of project.technologies" 
+                        class="bg-gray-light text-gray-dark" 
+                        style="padding: 0.25rem 0.75rem; border-radius: 12px; font-size: 0.75rem; font-weight: var(--font-medium); background: var(--primary-100); color: var(--primary-700);">
+                    {{ tech }}
+                  </span>
+                </div>
+              </div>
+              
+            
+              
+          
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="contact-section section-base" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); padding: 5rem 0; position: relative; overflow: hidden;">
+      
+      <!-- Éléments décoratifs -->
+      <div style="position: absolute; top: 10%; right: 5%; width: 100px; height: 100px; background: linear-gradient(45deg, var(--primary-200), var(--primary-300)); opacity: 0.3; border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+      <div style="position: absolute; bottom: 15%; left: 8%; width: 80px; height: 80px; background: linear-gradient(45deg, var(--primary-300), var(--primary-400)); opacity: 0.2; border-radius: 50%; animation: float 8s ease-in-out infinite reverse;"></div>
+      
+      <div class="professional-container container-xl contact-container">
+        
+        <!-- En-tête amélioré -->
+        <div class="section-title-base text-center" style="margin-bottom: 4rem;">
+          <p class="section-subtitle" style="color: var(--primary-600); font-weight: var(--font-semibold); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Collaborons ensemble</p>
+          <h2 class="section-title" style="color: var(--gray-900); font-weight: var(--font-bold); margin-bottom: 1rem; font-size: clamp(2rem, 5vw, 3rem);">Contactez-moi</h2>
+          <p class="section-description" style="color: var(--gray-600); max-width: 600px; margin: 0 auto; font-size: var(--text-lg); line-height: 1.6;">
+            Je suis ouverte aux opportunités professionnelles, projets collaboratifs et échanges techniques. 
+            N'hésitez pas à me contacter pour discuter de vos besoins.
+          </p>
+        </div>
+        
+        <div class="contact-content" style="width: 100%; margin: 0 auto;">
+          
+          <!-- Informations de contact -->
+          <div class="contact-methods">
+            
+            <!-- Email -->
+            <div class="contact-method" style="background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid var(--gray-200); border-top: 4px solid #0284c7; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="width: 70px; height: 70px; background: transparent; border: 2px solid #0284c7; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-envelope" style="font-size: 1.8rem; color: #0284c7;"></i>
+                </div>
+                <h4 style="font-size: var(--text-xl); font-weight: var(--font-bold); color: var(--gray-900); margin: 0;">Email</h4>
+              </div>
+              <a class="email-address" href="mailto:affessondes23@gmail.com" style="color: #0284c7; font-weight: var(--font-semibold); text-decoration: none;">affessondes23@gmail.com</a>
+            </div>
+
+            <!-- Téléphone -->
+            <div class="contact-method" style="background: white; padding: 3rem 3rem; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid var(--gray-200); border-top: 4px solid #0284c7; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="width: 70px; height: 70px; background: transparent; border: 2px solid #0284c7; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-phone" style="font-size: 1.8rem; color: #0284c7;"></i>
+                </div>
+                <h4 style="font-size: var(--text-xl); font-weight: var(--font-bold); color: var(--gray-900); margin: 0;">Téléphone</h4>
+              </div>
+              <a href="tel:+21650589761" style="color: #0284c7; font-weight: var(--font-semibold); text-decoration: none; font-size: var(--text-lg);">+216 50 589 761</a>
+            </div>
+            
+            <!-- Localisation -->
+            <div class="contact-method" style="background: white; padding: 3rem 3rem; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid var(--gray-200); border-top: 4px solid #0284c7; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="width: 70px; height: 70px; background: transparent; border: 2px solid #0284c7; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+                  <i class="fas fa-map-marker-alt" style="font-size: 1.8rem; color: #0284c7;"></i>
+                </div>
+                <h4 style="font-size: var(--text-xl); font-weight: var(--font-bold); color: var(--gray-900); margin: 0;">Localisation</h4>
+              </div>
+              <span style="color: var(--gray-800); font-weight: var(--font-semibold); font-size: var(--text-lg);">Sfax, Tunisie</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- FOOTER -->
+    <footer class="main-footer" style="background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%); color: white; padding: 4rem 0 2rem; position: relative; overflow: hidden;">
+      
+      <!-- Éléments décoratifs -->
+      <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: linear-gradient(45deg, var(--primary-600), var(--primary-500)); opacity: 0.1; border-radius: 50%; animation: float 8s ease-in-out infinite;"></div>
+      <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: linear-gradient(45deg, var(--primary-500), var(--primary-400)); opacity: 0.1; border-radius: 50%; animation: float 6s ease-in-out infinite reverse;"></div>
+      
+      <div class="professional-container">
+        <div class="footer-content" style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+          
+          <!-- Brand Section -->
+          <div class="footer-brand">
+            <h3 style="color: var(--primary-400); font-size: 2rem; margin-bottom: 1rem; font-weight: var(--font-bold);">
+              Sondes <span style="color: var(--primary-300);">AFFES</span>
+            </h3>
+            <p style="color: var(--gray-300); margin-bottom: 2rem; line-height: 1.7; max-width: 400px; font-size: var(--text-base);">
+              Élève ingénieure en Génie Informatique spécialisée en développement Full Stack, intelligence artificielle 
+              et solutions logicielles innovantes. Passionnée par les technologies modernes et l'innovation.
+            </p>
+            <div class="social-links" style="display: flex; gap: 1rem;">
+              <a href="https://www.linkedin.com/in/sondes-affes-384064268/" 
+                 target="_blank"
+                 style="width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gray-300); text-decoration: none; font-size: 1.25rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.1);">
+                <i class="fab fa-linkedin"></i>
+              </a>
+             
+              <a href="mailto:affessondes23@gmail.com" 
+                 style="width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--gray-300); text-decoration: none; font-size: 1.25rem; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(255,255,255,0.1);">
+                <i class="fas fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Navigation Section -->
+          <div class="footer-nav">
+            <h4 style="margin-bottom: 1.5rem; color: white; font-weight: var(--font-semibold); font-size: var(--text-lg);">Navigation</h4>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('accueil')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>Accueil
+                </a>
+              </li>
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('apropos')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>À propos
+                </a>
+              </li>
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('parcours'); switchTimeline('experience')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>Expériences
+                </a>
+              </li>
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('parcours'); switchTimeline('education')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>Formation
+                </a>
+              </li>
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('competences')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>Compétences
+                </a>
+              </li>
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('projets')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>Projets
+                </a>
+              </li>
+              <li style="margin-bottom: 0.75rem;">
+                <a href="javascript:void(0)" (click)="scrollToSection('contact')" style="color: var(--gray-300); text-decoration: none; font-size: var(--text-sm); transition: all 0.3s ease; display: flex; align-items: center; gap: 0.5rem;">
+                  <i class="fas fa-chevron-right" style="font-size: 0.75rem; color: var(--primary-400);"></i>Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <!-- Contact Section -->
+          <div class="footer-contact">
+            <h4 style="margin-bottom: 1.5rem; color: white; font-weight: var(--font-semibold); font-size: var(--text-lg);">Contact</h4>
+            <div style="font-size: var(--text-sm);">
+              <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; color: var(--gray-300);">
+                <div style="width: 40px; height: 40px; background: var(--primary-600); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="fas fa-envelope" style="color: white; font-size: 1rem;"></i>
+                </div>
+                <div>
+                  <div style="font-weight: var(--font-medium); margin-bottom: 0.25rem;">Email</div>
+                  <a href="mailto:affessondes23@gmail.com" style="color: var(--primary-300); text-decoration: none;">affessondes23@gmail.com</a>
+                </div>
+              </div>
+              <div style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; color: var(--gray-300);">
+                <div style="width: 40px; height: 40px; background: var(--primary-600); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="fas fa-map-marker-alt" style="color: white; font-size: 1rem;"></i>
+                </div>
+                <div>
+                  <div style="font-weight: var(--font-medium); margin-bottom: 0.25rem;">Localisation</div>
+                  <span>Sfax, Tunisie</span>
+                </div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 0.75rem; color: var(--gray-300);">
+                <div style="width: 40px; height: 40px; background: var(--primary-600); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i class="fas fa-graduation-cap" style="color: white; font-size: 1rem;"></i>
+                </div>
+                <div>
+                  <div style="font-weight: var(--font-medium); margin-bottom: 0.25rem;">Formation</div>
+                  <span>IIT Sfax - Génie Informatique</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="footer-bottom" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; text-align: center;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <p style="margin: 0; font-size: var(--text-sm); color: var(--gray-400);">
+              © {{ currentYear }} Sondes Affes. Tous droits réservés.
+            </p>
+           
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+
+

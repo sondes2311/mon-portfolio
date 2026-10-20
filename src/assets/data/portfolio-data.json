@@ -1,0 +1,39 @@
+{
+  "profile": {
+    "firstName": "Malek",
+    "lastName": "Belgacem",
+    "name": "Malek Belgacem",
+    "title": "Software Engineer | Full Stack & AI",
+    "tagline": "Ingénieure en informatique spécialisée en génie logiciel, développement web Full Stack et intelligence artificielle",
+    "bio": "Ingénieure en génie logiciel diplômée de l'École Polytechnique Internationale de Sousse avec la mention Excellent. Je conçois des applications modernes, sécurisées et performantes avec une expertise en Full Stack et intelligence artificielle.",
+    "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b829?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80",
+    "resume": "/assets/files/cv-malek-belgacem.pdf",
+    "location": "Sousse, Tunisie",
+    "email": "belgacemmalek2001@gmail.com",
+    "phone": "+216 26 150 216",
+    "available": true
+  },
+  "contact": {
+    "email": "belgacemmalek2001@gmail.com",
+    "phone": "+216 26 150 216",
+    "location": "Sousse, Tunisie",
+    "available": true
+  },
+  "social": {
+    "linkedin": "https://linkedin.com/in/malek-belgacem",
+    "github": "https://github.com/malekbelgacem",
+    "twitter": "https://twitter.com/malekbelgacem",
+    "website": "https://malekbelgacem.dev"
+  },
+  "stats": {
+    "yearsExperience": 3,
+    "projectsCompleted": 15,
+    "happyClients": 10,
+    "certifications": 6
+  },
+  "featured": {
+    "projects": [1, 2, 3],
+    "skills": ["Java", "Spring Boot", "Angular", "React", "PostgreSQL", "Machine Learning"],
+    "testimonials": [1, 2]
+  }
+}
