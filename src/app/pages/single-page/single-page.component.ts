@@ -108,10 +108,15 @@ export class SinglePageComponent implements OnInit {
     },
     {
       name: 'DevOps',
-      description: "Outils de déploiement, CI/CD et documentation d'API.",
+      description: 'Conteneurisation, intégration continue et gestion de versions.',
       icon: 'fas fa-infinity',
       skills: [
         { name: 'Docker', icon: 'fab fa-docker', color: '#0284c7' },
+        { name: 'Git', icon: 'fab fa-git-alt', color: '#0284c7' },
+        { name: 'GitHub', icon: 'fab fa-github', color: '#0284c7' },
+        { name: 'GitLab', icon: 'fab fa-gitlab', color: '#0284c7' },
+        { name: 'Jenkins', icon: 'fas fa-gears', color: '#0284c7' },
+        { name: 'Kubernetes', icon: 'fas fa-dharmachakra', color: '#0284c7' },
         { name: 'GitLab CI/CD', icon: 'fab fa-gitlab', color: '#0284c7' },
         { name: 'GitHub Actions', icon: 'fab fa-github', color: '#0284c7' },
         { name: 'Swagger', icon: 'fas fa-file-code', color: '#0284c7' }
