@@ -135,6 +135,20 @@ export class SinglePageComponent implements OnInit {
 
   otherProjects = [
     {
+      title: 'SmartCampus AI',
+      description: "Plateforme agentique intelligente d'orientation universitaire",
+      fullDescription: "Plateforme intelligente basée sur l'IA générative et les systèmes multi-agents pour accompagner les futurs étudiants dans leur orientation universitaire, de la découverte des parcours à la préinscription et au suivi des admissions.",
+      image: 'assets/images/campus.jpeg',
+      technologies: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'LLM', 'RAG', 'Multi-Agents'],
+      features: [
+        'conversations multimodales en français, tunisien et Arabizi',
+        'recommandations personnalisées des parcours académiques grâce au RAG',
+        'automatisation des préinscriptions',
+        'suivi des admissions',
+        'compréhension des besoins des candidats par des agents intelligents'
+      ]
+    },
+    {
       title: 'MediFlow',
       description: "Prédiction intelligente du temps d'attente aux urgences",
       fullDescription: "Solution intelligente dédiée à l'optimisation des services d'urgences hospitalières, permettant de prédire le temps d'attente des patients et d'analyser les facteurs influençant les délais de prise en charge.",
@@ -444,5 +458,4 @@ export class SinglePageComponent implements OnInit {
     }
   }
 }
-
 

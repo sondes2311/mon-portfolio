@@ -386,7 +386,7 @@ Recherche de Stage PFE
           <div class="project-card card-base hover-lift" *ngFor="let project of otherProjects">
 
             <!-- Media (Image ou Vidéo) -->
-            <div class="project-media" style="height: 220px; overflow: hidden; border-radius: 12px 12px 0 0; position: relative;">
+            <div class="project-media" style="overflow: hidden; border-radius: 12px 0 0 12px; position: relative;">
 
               <!-- Vidéo -->
               <video *ngIf="project.media?.type === 'video'"
@@ -395,7 +395,7 @@ Recherche de Stage PFE
                      controls
                      preload="metadata"
                      (error)="onVideoError($event)"
-                     style="width: 100%; height: 100%; object-fit: cover;">
+                     style="width: 100%; height: 100%; object-fit: contain;">
                 <source [src]="project.media?.url" type="video/mp4">
                 Votre navigateur ne supporte pas la lecture de vidéos.
               </video>
@@ -405,7 +405,7 @@ Recherche de Stage PFE
                    [src]="project.image || project.media?.url"
                    [alt]="project.title"
                    (error)="onImageError($event)"
-                   style="width: 100%; height: 100%; object-fit: cover;">
+                   style="width: 100%; height: 100%; object-fit: contain;">
 
               <!-- Indicateur de type de média -->
               <div *ngIf="project.media?.type === 'video'"
